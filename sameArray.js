@@ -54,3 +54,26 @@ const sameArray = (array1, array2) => {
   }
   return true;
 };
+
+// method 3 Big O -> O(N)
+const isSame = (ar1, ar2) => {
+  let frqCounter1 = {};
+  let frqCounter2 = {};
+
+  for (let val of ar1) {
+    frqCounter1[val] = (frqCounter1[val] || 0) + 1;
+  }
+  for (let val of ar2) {
+    frqCounter2[val] = (frqCounter2[val] || 0) + 1;
+  }
+
+  for (let key in frqCounter1) {
+    //check if the square of the key is in the second array
+    if (!(key ** 2 in frqCounter2)) return false;
+
+    // check if their frequency are same
+    if (frqCounter2[key ** 2] !== frqCounter1[key]) return false;
+  }
+
+  return true;
+};
