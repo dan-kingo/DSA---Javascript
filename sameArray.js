@@ -34,3 +34,23 @@ const same = (arr1, arr2) => {
   }
   return true;
 };
+
+// method 2 Big O -> O(N^2)
+
+const sameArray = (array1, array2) => {
+  // check their length first
+  if (array1.length !== array2.length) {
+    return false;
+  }
+
+  // loop through the first array
+  for (let i = 0; i < array1.length; i++) {
+    let correctIndex = array2.indexOf(array1[i] ** 2);
+    if (correctIndex === -1) {
+      return false;
+    }
+    // remove the founded element for frequency check
+    array2.splice(correctIndex, 1);
+  }
+  return true;
+};
