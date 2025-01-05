@@ -21,3 +21,10 @@ const countUniques = (arr) => {
 
   return arrCopy.length;
 };
+
+// method 2 : Big O => O(n)
+
+const countUniqueValues = (arr) => {
+  // use Sets to get uniques from the array
+  return new Set(arr).size;
+};
