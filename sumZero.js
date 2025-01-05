@@ -23,3 +23,25 @@ const sumZero = (arr) => {
 };
 
 console.log(sumZero([5, 2, 8, -3, -4, -2, 0, 3]));
+
+// method 2 : using multiple pointers Big O -> O(n)
+const theirSumZero = (arr) => {
+  // first sort it incase if not
+  arr.sort((a, b) => a - b);
+
+  let left = 0;
+  let right = arr.length - 1;
+
+  // iterate and check
+  while (left < right) {
+    let sum = arr[left] + arr[right];
+    if (sum === 0) {
+      return [arr[left], arr[right]];
+    } else if (sum > 0) {
+      right--;
+    } else {
+      left++;
+    }
+  }
+};
+console.log(theirSumZero([5, 2, 8, -3, -4, 0]));
