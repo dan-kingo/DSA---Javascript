@@ -26,3 +26,30 @@ const maxSubarraySum = (arr, num) => {
   }
   return max;
 };
+
+// Method 2 : Big O -> O(n)
+const maxSubArraySum = (arr, num) => {
+  if (num > arr.length) {
+    return null;
+  }
+
+  let max = 0;
+  let temp = 0;
+
+  // Calculate the sum of the first subarray of size `num`
+  for (let i = 0; i < num; i++) {
+    max += arr[i];
+  }
+
+  temp = max;
+
+  // Slide the window through the array
+  for (let i = num; i < arr.length; i++) {
+    // Adjust the sum by removing the first element of the previous window and adding the new element
+    temp = temp - arr[i - num] + arr[i];
+    // Update max
+    max = Math.max(max, temp);
+  }
+
+  return max;
+};
