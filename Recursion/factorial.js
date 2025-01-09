@@ -25,3 +25,13 @@ const factorial = (num) => {
   }
   return fact;
 };
+
+// Method 2: recursive approach
+
+const fact = (num) => {
+  if (num < 0) {
+    console.log("pls enter +ve number!");
+    return;
+  } else if (num === 0) return 1;
+  return num * fact(num - 1);
+};
