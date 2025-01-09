@@ -21,3 +21,16 @@ const collectOddValues = (arr) => {
 
   return result.concat(collectOddValues(arr.slice(1)));
 };
+
+// Method 2: helper function recursion
+
+const collectOdds = (arr) => {
+  let result = [];
+  const helper = (helperArray) => {
+    if (helperArray.length === 0) return [];
+    if (helperArray[0] % 2 !== 0) result.push(helperArray[0]);
+    helper(helperArray.slice(1));
+  };
+  helper(arr);
+  return result;
+};
