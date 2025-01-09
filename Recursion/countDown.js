@@ -24,3 +24,16 @@ const countDown = (num) => {
   }
   console.log("All Done!");
 };
+
+// Method 2 : recursive approach
+
+function countdown(num) {
+  if (num < 0) {
+    console.log("Please enter a positive number");
+    return;
+  }
+  console.log(num);
+  num--;
+  if (num >= 0) countdown(num);
+  else console.log("All Done!");
+}
