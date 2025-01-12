@@ -22,3 +22,11 @@ const productOfArray = (arr) => {
   }
   return product;
 };
+
+// Method 2: Recursion
+
+const productArray = (arr) => {
+  if (arr.length === 0) return 1;
+
+  return arr[0] * productArray(arr.slice(1));
+};
