@@ -20,3 +20,11 @@ const power = (base, exponent) => {
   }
   return power;
 };
+
+// Method 2: recursion
+
+const pow = (base, exponent) => {
+  if (exponent === 0) return 1;
+
+  return base * pow(base, exponent - 1);
+};
