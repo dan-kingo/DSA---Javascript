@@ -20,3 +20,10 @@ const reverse = (str) => {
   }
   return reversed;
 };
+
+// Method 2: Recursion
+const reverseString = (str) => {
+  if (str.length === 0) return "";
+
+  return reverse(str.slice(1)) + str[0];
+};
