@@ -24,7 +24,6 @@ const productOfArray = (arr) => {
 };
 
 // Method 2: Recursion
-
 const productArray = (arr) => {
   if (arr.length === 0) return 1;
 
