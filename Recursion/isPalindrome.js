@@ -12,7 +12,6 @@ isPalindrome(""); // true
 */
 
 // Method 1: iteration
-
 const isPalindrome = (str) => {
   if (str === "") return true;
 
@@ -21,4 +20,14 @@ const isPalindrome = (str) => {
     reverse += str[i];
   }
   return str === reverse;
+};
+
+// Method 2: Recursion
+const palindrome = (str) => {
+  if (str.length === 1) return true;
+  if (str.length === 2) return str[0] === str[1];
+
+  if (str[0] === str[str.length - 1]) return isPalindrome(str.slice(1, -1));
+
+  return false;
 };
