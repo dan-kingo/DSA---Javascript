@@ -15,14 +15,33 @@ collectStrings(obj2);
 
 // Method 1: pure recursion
 const collectStrings = (obj) => {
-  let arrayOfString = [];
+  let arrayOfStrings = [];
 
   for (let key in obj) {
-    if (typeof obj[key] === "string") arrayOfString.push(obj[key]);
+    if (typeof obj[key] === "string") arrayOfStrings.push(obj[key]);
     else if (typeof obj[key] === "object") {
-      arrayOfString = arrayOfString.concat(collectStrings(obj[key]));
+      arrayOfStrings = arrayOfStrings.concat(collectStrings(obj[key]));
     }
   }
 
-  return arrayOfString;
+  return arrayOfStrings;
+};
+
+// Method 2: helper function
+const collectString = (object) => {
+  var arrayOfStrings = [];
+
+  function helper(obj) {
+    for (var key in obj) {
+      if (typeof obj[key] === "string") {
+        arrayOfStrings.push(obj[key]);
+      } else if (typeof obj[key] === "object") {
+        return helper(obj[key]);
+      }
+    }
+  }
+
+  helper(object);
+
+  return arrayOfStrings;
 };
